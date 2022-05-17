@@ -1,5 +1,6 @@
 package com.example.hotelautomtionproject.presentation.presentation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,6 +37,13 @@ class WebViewFragment : Fragment() {
 //                loadUrl(someData.url)
 //            }
         }
+    }
+
+    private fun getUrl() {
+        val sharedPref =
+            activity?.getSharedPreferences(getString(R.string.webview_link), Context.MODE_PRIVATE)
+        val url = sharedPref?.getString(getString(R.string.webview_link_url),getString(R.string.webview_link_default))
+        //TODO: Use url here to launch WebView
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.hotelautomtionproject.presentation.presentation.login
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,15 +28,16 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     lateinit var scannerView: ZBarScannerView
 
 
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         mView = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
         initViews()
         onClicks()
         return mView.rootView
     }
-
 
 
     private fun initViews() {
@@ -57,7 +59,6 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     }
 
 
-
     override fun handleResult(rawResult: Result?) {
         onQrResult(rawResult?.contents)
     }
@@ -65,9 +66,18 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     private fun onQrResult(contents: String?) {
         if (contents.isNullOrEmpty())
             showToast("Empty Qr Result")
-        else
+        else {
             showToast(contents)
-            scannerView.resumeCameraPreview(this)
+            val sharedPreference =
+                activity?.getSharedPreferences(
+                    getString(R.string.webview_link),
+                    Context.MODE_PRIVATE
+                )
+            var editor = sharedPreference?.edit()
+            editor?.putString(getString(R.string.webview_link_url), contents)
+            editor?.apply()
+        }
+        scannerView.resumeCameraPreview(this)
     }
 
     private fun showToast(message: String) {
@@ -75,11 +85,9 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     }
 
 
-
     private fun startQRCamera() {
         scannerView.startCamera()
     }
-
 
 
     private fun onClicks() {
