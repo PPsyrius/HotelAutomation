@@ -47,9 +47,9 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     private fun initializeQRCamera() {
         scannerView = ZBarScannerView(context)
         scannerView.setResultHandler(this)
-        scannerView.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorTranslucent))
-        scannerView.setBorderColor(ContextCompat.getColor(context!!, R.color.colorPrimaryDark))
-        scannerView.setLaserColor(ContextCompat.getColor(context!!, R.color.colorPrimaryDark))
+        scannerView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorTranslucent))
+        scannerView.setBorderColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark))
+        scannerView.setLaserColor(ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark))
         scannerView.setBorderStrokeWidth(10)
         scannerView.setSquareViewFinder(true)
         scannerView.setupScanner()
@@ -81,7 +81,7 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(context!!, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
 

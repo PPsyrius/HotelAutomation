@@ -11,7 +11,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.hotelautomtionproject.R
 import com.example.hotelautomtionproject.databinding.FragmentWebViewBinding
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WebViewFragment : Fragment() {
     private lateinit var fragmentWebViewBinding: FragmentWebViewBinding
 

@@ -20,7 +20,7 @@ class NormalLogInFragment : Fragment() {
     private lateinit var binding: FragmentNormalLoginBinding
 
     @Inject
-    private lateinit var apiService: APIService
+    lateinit var apiService: APIService
 
     companion object {
 

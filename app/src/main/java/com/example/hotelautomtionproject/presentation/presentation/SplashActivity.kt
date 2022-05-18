@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.example.hotelautomtionproject.R
 import com.example.hotelautomtionproject.presentation.presentation.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 class SplashActivity : AppCompatActivity() {
 
