@@ -1,5 +1,6 @@
 package com.example.hotelautomtionproject.presentation.presentation.login
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,12 +47,18 @@ class NormalLogInFragment : Fragment() {
 
         binding.tvSignIn.setOnClickListener {
             Toast.makeText(context, "Sign In Text View clicked", Toast.LENGTH_SHORT).show()
-            //TODO: Move the code chunk to view model if exist.
             lifecycleScope.launch() {
                 try {
                     var user = apiService.getUserName(binding.editText.text.toString())[0]
                     if(user.password==binding.editText2.text.toString()) {
-                        //TODO: Launch webview here using url from user.url
+                        val sharedPreference =
+                            activity?.getSharedPreferences(
+                                getString(R.string.webview_link),
+                                Context.MODE_PRIVATE
+                            )
+                        var editor = sharedPreference?.edit()
+                        editor?.putString(getString(R.string.webview_link_url), user.url)
+                        editor?.apply()
                     }
                 } catch (e: Exception) {
                     Toast.makeText(context, "User or password is incorrect.", Toast.LENGTH_SHORT)
