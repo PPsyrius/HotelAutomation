@@ -1,6 +1,8 @@
 package com.example.hotelautomtionproject.presentation.presentation.login
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.hotelautomtionproject.R
+import com.example.hotelautomtionproject.presentation.presentation.MainActivity
+import com.example.hotelautomtionproject.presentation.presentation.WebViewActivity
 import kotlinx.android.synthetic.main.fragment_qr_scanner.view.*
 import me.dm7.barcodescanner.zbar.Result
 import me.dm7.barcodescanner.zbar.ZBarScannerView
@@ -76,6 +80,14 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
             var editor = sharedPreference?.edit()
             editor?.putString(getString(R.string.webview_link_url), contents)
             editor?.apply()
+
+            activity?.let{
+                val intent = Intent (context, WebViewActivity::class.java)
+                it.startActivity(intent)
+            }
+
+
+
         }
         scannerView.resumeCameraPreview(this)
     }
@@ -83,6 +95,8 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
+
+
 
 
     private fun startQRCamera() {
@@ -125,6 +139,8 @@ class QRScannerFragment : Fragment(), ZBarScannerView.ResultHandler {
         super.onDestroy()
         scannerView.stopCamera()
     }
+
+
 
 
 }

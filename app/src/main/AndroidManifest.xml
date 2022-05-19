@@ -19,9 +19,11 @@
         android:theme="@style/Theme.HotelAutomtionProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.presentation.WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.presentation.MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".presentation.presentation.SplashActivity"
             android:exported="true">
@@ -31,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

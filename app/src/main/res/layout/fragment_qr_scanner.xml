@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".presentation.presentation.login.QrScannerFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -32,10 +33,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan to Sign in"
-        android:textSize="30dp"
-        android:fontFamily="@font/fenicestd_regular"
-        android:textColor="#000000"
+        android:text="SIGN-IN"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/librebaskerville_bold"
+        android:textColor="#FEC64C"
         app:layout_constraintBottom_toTopOf="@+id/containerScanner"
         app:layout_constraintEnd_toStartOf="@+id/flashToggle"
         app:layout_constraintHorizontal_bias="0.573"
