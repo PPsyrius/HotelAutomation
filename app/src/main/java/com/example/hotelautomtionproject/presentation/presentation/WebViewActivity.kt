@@ -24,6 +24,8 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.wvInfo.apply {
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
             webViewClient = object: WebViewClient(){
                 override fun shouldOverrideUrlLoading(
                     view: WebView?,
