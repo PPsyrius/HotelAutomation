@@ -48,7 +48,7 @@ dependencies {
     def arch_version = "2.1.0"
     def room_version = "2.3.0"
     def coroutines_version = "1.6.4"
-    def dagger_version = "2.43.1"
+    def dagger_version = "2.43.2"
     def retrofit_version = "2.9.0"
     def Interceptor_version = "4.10.0"
     def Glide_version = "4.13.2"
@@ -115,14 +115,14 @@ dependencies {
 
     //form
     implementation 'com.github.OmarShehe.FormInputs:forminputkotlin:1.0.1'
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
 
     //test
     testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
 
     // hilt
-    implementation("com.google.dagger:hilt-android:2.43.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.43.1")
+    implementation("com.google.dagger:hilt-android:2.43.2")
+    kapt("com.google.dagger:hilt-android-compiler:2.43.2")
 
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
